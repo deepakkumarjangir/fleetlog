@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.5.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.deepakdaneva.fleetlog</groupId>
+	<artifactId>FleetLog</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>FleetLog</name>
+	<description>Fleet Tracking system for an organisation.</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<!-- BELOW ARE THE CUSTOM PROPERTIES WHICH ARE USED IN THIS POM FILE BELOW -->
+		<ojdbc7.version>12.1.0.2</ojdbc7.version>
+		<passay.version>1.5.0</passay.version>
+		<jjwt.version>0.9.0</jjwt.version>
+		<json.version>20180813</json.version>
+		<modelmapper-version>2.3.4</modelmapper-version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId> <!-- SCOPE 'provided' BECAUSE WE DON'T WANT TO USE EMBEDDED TOMCAT -->
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId> <!-- THYMELEAF TEMPLATING ENGINE -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId> <!-- FOR MAILING IN THE PROJECT -->
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId> <!-- MYSQL JDBC DRIVER FOR DATABASE CONNECTION -->
+			<scope>runtime</scope>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId> ORACLE JDBC DRIVER FOR DATABASE CONNECTION(NOTE: THIS DEPENDENCY IS MANUALLY ADDED TO LOCAL MAVEN REPOSITORY)
+			<version>${ojdbc7.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.passay</groupId>
+			<artifactId>passay</artifactId> <!-- FOR CREATING OWN PASSWORD POLICY VALIDATOR -->
+			<version>${passay.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId> <!-- FOR CREATING TOKEN FOR USER LOGIN -->
+			<version>${jjwt.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.json</groupId>
+    		<artifactId>json</artifactId> <!-- FOR CREATING JSON -->
+    		<version>${json.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.modelmapper</groupId>
+    		<artifactId>modelmapper</artifactId> <!-- FOR CREATING DTOs (DATA TRANSFER OBJECT)s TO AND FROM ENTITY -->
+    		<version>${modelmapper-version}</version>
+    	</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-quartz</artifactId> <!-- FOR JOB SCHEDULER -->
+		</dependency>
+		<!-- BELOW ARE THE TESTING DEPENDENCIES -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>codelds</id>
+			<url>https://code.lds.org/nexus/content/groups/main-repo</url> <!-- THIRD PARTY REPOSITORY FOR ORACLE JDBC DRIVER -->
+		</repository>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
