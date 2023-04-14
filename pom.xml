@@ -21,7 +21,7 @@
 		<ojdbc7.version>12.1.0.2</ojdbc7.version>
 		<passay.version>1.5.0</passay.version>
 		<jjwt.version>0.9.0</jjwt.version>
-		<json.version>20180813</json.version>
+		<json.version>20230227</json.version>
 		<modelmapper-version>2.3.4</modelmapper-version>
 	</properties>
 	<dependencies>
